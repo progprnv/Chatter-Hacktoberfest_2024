@@ -14,10 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Save the updated messages back to JSON file
         file_put_contents('messages.json', json_encode($messages));
+
+        // Return the posted message as JSON response
+        echo json_encode(['message' => $message]);
     }
 }
 
-// Redirect back to index.php
-header('Location: index.php');
-exit();
+
 ?>
